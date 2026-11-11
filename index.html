@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#6657ee"><title>국방예산 인사이트 | 2026–2027</title><link rel="stylesheet" href="styles.css"><script defer src="data.js"></script><script defer src="app.js"></script></head>
+<body>
+<aside class="rail"><a href="#" class="brand" aria-label="대시보드 처음"><span class="brand-mark">▥</span> BUDGET<span class="brand-dot">.</span></a><div class="rail-label">DEFENSE INSIGHTS</div><a class="rail-link active" href="#overview"><span>◈</span> 예산 한눈에</a><a class="rail-link" href="#composition"><span>◉</span> 재원 구성</a><a class="rail-link" href="#programs"><span>▤</span> 프로그램 분석</a><a class="rail-link" href="#details"><span>▦</span> 상세 데이터</a><div class="rail-bottom"><span class="live-dot"></span> 2027 정부안<br><small>2026년 예산과 비교</small></div></aside>
+<main>
+<header id="overview"><div><div class="eyebrow">DEFENSE BUDGET / 2026 → 2027</div><h1>국방예산, 숫자 너머의 변화<span>.</span></h1><p>재원의 흐름부터 프로그램의 변화까지, 한눈에 살펴보세요.</p></div><span class="year-pill">2027 <small>정부안</small></span></header>
+<section class="filter-bar" aria-label="데이터 필터"><div class="filter-heading">분석 범위 <span id="record-count"></span></div><label>부문<select id="sector"><option value="">전체 부문</option></select></label><label>회계구분<select id="account"><option value="">전체 회계</option></select></label><label class="search-label">프로그램 검색<input id="search" placeholder="프로그램명 또는 구분 검색" type="search"></label><label>차트 단위<select id="unit"><option value="10000">조 원</option><option value="1">억 원</option></select></label><button id="reset" class="reset">초기화 ↺</button></section>
+<div id="scope" class="scope" aria-live="polite"></div>
+<section class="kpis" id="kpis" aria-label="주요 지표"></section>
+<div class="section-label" id="composition"><span>01</span><h2>재원은 어디로 향할까요?</h2><p>필터를 적용한 예산 구조와 변화</p></div>
+<div class="chart-grid">
+<article class="panel"><div class="panel-head"><div><h3>부문별 예산 비교</h3><p>2026년과 2027년 순재원 비교</p></div><span class="tag purple">COMPARE</span></div><div id="sector-chart" class="chart"></div></article>
+<article class="panel"><div class="panel-head"><div><h3>회계구분별 예산 비교</h3><p>내부거래·보전지출을 포함한 순재원</p></div><span class="tag blue">ACCOUNT</span></div><div id="account-chart" class="chart"></div></article>
+<article class="panel"><div class="panel-head"><div><h3>부문별 재원 비중</h3><p>2027년 양수 금액만 포함 · 차감 항목 제외</p></div><span class="tag pink">SHARE</span></div><div id="donut-chart" class="chart"></div></article>
+<article class="panel"><div class="panel-head"><div><h3>회계구분별 재원 비중</h3><p>2027년 양수 금액만 포함 · 차감 항목 제외</p></div><span class="tag teal">MIX</span></div><div id="account-donut" class="chart"></div></article>
+<article class="panel wide"><div class="panel-head"><div><h3>2026년에서 2027년으로, 재원 변화</h3><p>시작 순재원 + 부문별 증감 = 최종 순재원</p></div><span class="tag orange">BRIDGE</span></div><div id="waterfall-chart" class="chart"></div></article>
+</div>
+<div class="section-label" id="programs"><span>02</span><h2>프로그램별로 더 깊이 보기</h2><p>규모·증감·증감률의 여러 시선</p></div>
+<div class="chart-grid">
+<article class="panel"><div class="panel-head"><div><h3>예산 규모 TOP 10</h3><p>2027년 예산이 큰 프로그램 · 양수 금액 기준</p></div><span class="tag purple">RANKING</span></div><div id="ranking-chart" class="chart tall"></div></article>
+<article class="panel"><div class="panel-head"><div><h3>증감 영향 TOP 10</h3><p>증감 절댓값 순 · 음수 차감 항목 포함</p></div><span class="tag pink">CHANGE</span></div><div id="delta-chart" class="chart tall"></div></article>
+<article class="panel"><div class="panel-head"><div><h3>증감률 TOP 12</h3><p>증감률 절댓값 순 · (2027 − 2026) ÷ 2026</p></div><span class="tag orange">GROWTH</span></div><div id="rate-chart" class="chart tall"></div></article>
+<article class="panel"><div class="panel-head"><div><h3>예산 규모와 증감률</h3><p>가로: 2027년 예산 · 세로: 증감률 · 양수 금액 기준</p></div><span class="tag teal">EXPLORE</span></div><div id="scatter-chart" class="chart tall"></div></article>
+<article class="panel wide"><div class="panel-head"><div><h3>프로그램별 예산 지도</h3><p>면적은 2027년 예산에 비례 · 양수 금액만 포함 · 색상은 부문</p></div><span class="tag blue">TREEMAP</span></div><div id="treemap-chart" class="chart map"></div></article>
+<article class="panel wide"><div class="panel-head"><div><h3>구분별 예산 포트폴리오</h3><p>2026년과 2027년의 규모를 색으로 비교 · 금액 단위는 선택값 적용</p></div><span class="tag purple">HEATMAP</span></div><div id="heatmap-chart" class="chart"></div></article>
+</div>
+<section class="panel details" id="details"><div class="panel-head"><div><h2>상세 데이터</h2><p>열 제목을 누르면 정렬됩니다. 현재 필터 결과를 CSV로 저장할 수 있습니다.</p></div><button id="download" class="download">CSV 다운로드 ↓</button></div><div class="table-scroll"><table><thead><tr><th><button data-sort="sector">부문 ↕</button></th><th><button data-sort="account">회계구분 ↕</button></th><th><button data-sort="category">구분 ↕</button></th><th><button data-sort="program">프로그램명 ↕</button></th><th><button data-sort="y26">2026년 ↕</button></th><th><button data-sort="y27">2027년 ↕</button></th><th><button data-sort="delta">증감 ↕</button></th><th><button data-sort="rate">증감률 ↕</button></th></tr></thead><tbody id="table-body"></tbody></table></div><div class="table-foot"><span id="table-count"></span><span>금액: 억 원 / 증감률: %</span></div></section>
+<footer><strong>데이터 안내</strong><p id="source"></p><p>순재원은 내부거래·보전지출 등 음수 금액을 포함한 합계입니다. 비중·면적 그래프는 양수 금액만 사용합니다. 증감률은 엑셀에 기재된 억 원 단위 금액으로 계산하므로 PDF의 표시 증감률과 차이가 있을 수 있습니다. 원문 세부 금액의 반올림으로 프로그램 합계와 PDF 총재원 사이에 소액 차이가 있습니다.</p><p>엑셀 수정 후 <code>python dashboard/update_data.py</code>를 실행하고 페이지를 새로고침하면 반영됩니다.</p></footer>
+</main><div id="tooltip" class="tooltip" role="tooltip"></div>
+</body></html>
